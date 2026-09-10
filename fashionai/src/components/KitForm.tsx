@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { submitLead } from "@/app/actions/lead";
 
@@ -13,7 +13,7 @@ interface CountryOption {
 }
 
 const COUNTRIES: CountryOption[] = [
-  { code: "CI", name: "Côte d’Ivoire", dial: "+225", flag: "🇨🇮", placeholder: "07 00 00 00 00" },
+  { code: "CI", name: "Côte d’Ivoire", dial: "+225", flag: "🇨🇮", placeholder: "07 57 51 29 50" },
   { code: "SN", name: "Sénégal", dial: "+221", flag: "🇸🇳", placeholder: "77 000 00 00" },
   { code: "CM", name: "Cameroun", dial: "+237", flag: "🇨🇲", placeholder: "6 00 00 00 00" },
   { code: "FR", name: "France", dial: "+33", flag: "🇫🇷", placeholder: "06 00 00 00 00" },
@@ -39,6 +39,8 @@ const COUNTRIES: CountryOption[] = [
   { code: "OTHER", name: "Autre pays / International", dial: "+", flag: "🌍", placeholder: "Indicatif + Numéro" },
 ];
 
+const LOCAL_STORAGE_KEY = "fashionai_lead_profile";
+
 export default function KitForm({ 
   slug = "studio-shooting-mode",
   initialPlatform = "google"
@@ -49,11 +51,35 @@ export default function KitForm({
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [hasNoSocial, setHasNoSocial] = useState(false);
-  const [platform, setPlatform] = useState<"google" | "chatgpt" | "autres">(initialPlatform);
   
+  // Form fields with auto-remplissage
+  const [prenom, setPrenom] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("CI");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [socialUrl, setSocialUrl] = useState("");
+  const [hasNoSocial, setHasNoSocial] = useState(false);
+  const [consent, setConsent] = useState(true);
+  const [platform, setPlatform] = useState<"google" | "chatgpt" | "autres">(initialPlatform);
+
+  // 4. Auto-remplissage lors des prochaines visites
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (data.prenom) setPrenom(data.prenom);
+        if (data.countryCode) setSelectedCountryCode(data.countryCode);
+        if (data.phoneNumber) setPhoneNumber(data.phoneNumber);
+        if (data.email) setEmail(data.email);
+        if (data.socialUrl) setSocialUrl(data.socialUrl);
+        if (data.hasNoSocial !== undefined) setHasNoSocial(data.hasNoSocial);
+        if (data.platform) setPlatform(data.platform);
+      }
+    } catch (e) {
+      console.warn("Could not read stored profile", e);
+    }
+  }, []);
 
   const currentCountry = COUNTRIES.find((c) => c.code === selectedCountryCode) || COUNTRIES[0];
 
@@ -62,7 +88,28 @@ export default function KitForm({
     setLoading(true);
     setError(null);
 
-    const formData = new FormData(e.currentTarget);
+    // Save profile in localStorage for auto-remplissage
+    try {
+      const profileToSave = {
+        prenom,
+        countryCode: selectedCountryCode,
+        phoneNumber,
+        email,
+        socialUrl: hasNoSocial ? "" : socialUrl,
+        hasNoSocial,
+        platform,
+      };
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(profileToSave));
+    } catch (e) {
+      console.warn("Could not save profile to localStorage", e);
+    }
+
+    const formData = new FormData();
+    formData.append("prenom", prenom);
+    formData.append("email", email);
+    formData.append("social_url", hasNoSocial ? "" : socialUrl);
+    formData.append("has_no_social", hasNoSocial ? "on" : "off");
+    formData.append("consent", consent ? "on" : "off");
     formData.append("slug", slug);
     formData.append("platform", platform);
     formData.append("country_code", currentCountry.dial);
@@ -91,10 +138,10 @@ export default function KitForm({
       {/* Justification éthique et commerciale */}
       <div className="bg-[#F6F6F8] border border-[#DCDCE2] p-3 text-xs text-[#56565F] leading-relaxed">
         <p className="font-mono text-[11px] font-bold text-[#0B0B0D] uppercase tracking-wider mb-1">
-          Ce kit est destiné en priorité aux entrepreneurs et aux marques.
+          Ce kit est destiné en priorité aux créateurs et aux marques.
         </p>
         <p className="font-sans text-[11px] text-[#56565F]">
-          Nous demandons un lien vers votre boutique ou votre page pour comprendre à qui nous nous adressons, et pour vous répondre utilement si vous nous écrivez. Rien n’est publié, rien n’est revendu.
+          Vos coordonnées servent à générer votre kit personnalisé et vous envoyer l’accès à la masterclass en direct. Rien n’est revendu.
         </p>
       </div>
 
@@ -119,7 +166,7 @@ export default function KitForm({
               type="button"
               key={item.id}
               onClick={() => setPlatform(item.id as "google" | "chatgpt" | "autres")}
-              className={`p-2 text-left border font-mono transition-all rounded-none ${
+              className={`p-2 text-left border font-mono transition-all rounded-none cursor-pointer ${
                 platform === item.id
                   ? "bg-[#0B0B0D] text-white border-[#0B0B0D]"
                   : "bg-white text-[#56565F] border-[#DCDCE2] hover:border-[#0B0B0D]"
@@ -141,6 +188,8 @@ export default function KitForm({
           type="text"
           id="prenom"
           name="prenom"
+          value={prenom}
+          onChange={(e) => setPrenom(e.target.value)}
           placeholder="Votre prénom"
           required
           className="w-full bg-white border border-[#DCDCE2] focus:border-[#0B0B0D] focus:ring-0 px-3 py-2 text-xs font-mono text-[#0B0B0D] transition-colors rounded-none"
@@ -209,6 +258,8 @@ export default function KitForm({
           type="email"
           id="email"
           name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="contact@votreboutique.com"
           className="w-full bg-white border border-[#DCDCE2] focus:border-[#0B0B0D] focus:ring-0 px-3 py-2 text-xs font-mono text-[#0B0B0D] transition-colors rounded-none"
         />
@@ -223,6 +274,8 @@ export default function KitForm({
           type="text"
           id="social_url"
           name="social_url"
+          value={socialUrl}
+          onChange={(e) => setSocialUrl(e.target.value)}
           placeholder="instagram.com/ma_marque ou lien site"
           disabled={hasNoSocial}
           required={!hasNoSocial}
@@ -234,31 +287,61 @@ export default function KitForm({
         />
       </div>
 
-      {/* Échappatoire : Pas encore de page pro */}
-      <div className="flex items-start gap-2 pt-1">
+      {/* 5. VISIBILITÉ FORTE DE LA COCHE : Case à cocher "Pas de page pro" */}
+      <div 
+        className="flex items-center gap-3 pt-1 cursor-pointer select-none"
+        onClick={() => setHasNoSocial(!hasNoSocial)}
+      >
+        <div className={`w-5 h-5 flex items-center justify-center border transition-all rounded-none shrink-0 ${
+          hasNoSocial 
+            ? "bg-[#0B0B0D] border-[#0B0B0D] text-white" 
+            : "bg-white border-[#868691] hover:border-[#0B0B0D]"
+        }`}>
+          {hasNoSocial && (
+            <svg className="w-3.5 h-3.5 stroke-current stroke-[3]" viewBox="0 0 24 24" fill="none">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+        </div>
         <input
           type="checkbox"
           id="has_no_social"
           name="has_no_social"
           checked={hasNoSocial}
           onChange={(e) => setHasNoSocial(e.target.checked)}
-          className="mt-0.5 w-4 h-4 text-[#0B0B0D] bg-white border-[#DCDCE2] focus:ring-0 rounded-none cursor-pointer"
+          className="sr-only"
         />
         <label htmlFor="has_no_social" className="font-mono text-[11px] text-[#56565F] leading-tight cursor-pointer">
           Je n’ai pas encore de page pro ou boutique publique
         </label>
       </div>
 
-      {/* Consentement */}
-      <div className="flex items-start gap-2 pt-2 border-t border-[#DCDCE2]">
+      {/* 5. VISIBILITÉ FORTE DE LA COCHE : Case à cocher "Consentement" */}
+      <div 
+        className="flex items-center gap-3 pt-2 border-t border-[#DCDCE2] cursor-pointer select-none"
+        onClick={() => setConsent(!consent)}
+      >
+        <div className={`w-5 h-5 flex items-center justify-center border transition-all rounded-none shrink-0 ${
+          consent 
+            ? "bg-[#0B0B0D] border-[#0B0B0D] text-white" 
+            : "bg-white border-[#868691] hover:border-[#0B0B0D]"
+        }`}>
+          {consent && (
+            <svg className="w-3.5 h-3.5 stroke-current stroke-[3]" viewBox="0 0 24 24" fill="none">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+        </div>
         <input
           type="checkbox"
           id="consent"
           name="consent"
-          className="mt-0.5 w-4 h-4 text-[#0B0B0D] bg-white border-[#DCDCE2] focus:ring-0 rounded-none cursor-pointer"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="sr-only"
         />
         <label htmlFor="consent" className="font-sans text-[11px] text-[#56565F] leading-tight cursor-pointer">
-          J’accepte de recevoir des conseils de production et les invitations aux séances d’audit.
+          J’accepte de recevoir des conseils de production et les invitations aux masterclasses du samedi.
         </label>
       </div>
 
@@ -266,14 +349,14 @@ export default function KitForm({
       <button
         type="submit"
         disabled={loading}
-        className="mt-2 w-full bg-[#0B0B0D] text-white font-mono text-xs uppercase tracking-widest py-4 border border-[#0B0B0D] hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 rounded-none"
+        className="mt-2 w-full bg-[#0B0B0D] text-white font-mono text-xs uppercase tracking-widest py-4 border border-[#0B0B0D] hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 rounded-none cursor-pointer"
       >
         <span>{loading ? "GÉNÉRATION DU LIEN..." : "TÉLÉCHARGER LE KIT COMPLET (V1.0) →"}</span>
       </button>
 
       <div className="text-center">
         <span className="font-mono text-[10px] text-[#56565F] uppercase tracking-wider">
-          LIVRAISON IMMÉDIATE PAR LIEN SÉCURISÉ 24H · AUCUN SPAM
+          LIVRAISON IMMÉDIATE PAR LIEN SÉCURISÉ · AUTO-REMPLISSAGE ACTIVÉ
         </span>
       </div>
     </form>

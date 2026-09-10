@@ -16,7 +16,7 @@ export default function MerciPage() {
   const dlKitUrl = token ? `/api/dl/${token}?platform=${platform}&type=kit` : "#";
   const dlModelUrl = token ? `/api/dl/${token}?type=model` : "/models/fatou_character_sheet.png";
 
-  // Lancement automatique du double téléchargement (Kit .md + Image Mannequin Fatou)
+  // 6. Lancement automatique et simultané du double téléchargement (Kit .md + Image Mannequin Fatou)
   useEffect(() => {
     if (token && !hasAutoDownloaded.current) {
       hasAutoDownloaded.current = true;
@@ -29,7 +29,7 @@ export default function MerciPage() {
       linkKit.click();
       document.body.removeChild(linkKit);
 
-      // 2. Lancement de la Planche Mannequin Fatou (@perso) avec léger délai
+      // 2. Lancement de la Planche Mannequin Fatou (@perso)
       const timer = setTimeout(() => {
         const linkModel = document.createElement("a");
         linkModel.href = dlModelUrl;
@@ -37,7 +37,7 @@ export default function MerciPage() {
         document.body.appendChild(linkModel);
         linkModel.click();
         document.body.removeChild(linkModel);
-      }, 400);
+      }, 350);
 
       return () => clearTimeout(timer);
     }
@@ -87,11 +87,11 @@ export default function MerciPage() {
               Merci ! Vos fichiers de shooting sont en cours de téléchargement.
             </h1>
             <p className="font-sans text-xs md:text-sm text-[#56565F] leading-relaxed">
-              Le <strong>Kit d’instructions IA (Édition {platform.toUpperCase()})</strong> et la <strong>Planche Mannequin Fatou (@perso)</strong> ont été lancés automatiquement dans votre navigateur.
+              Le <strong>Kit d’instructions IA (Édition {platform.toUpperCase()})</strong> et la <strong>Photo HD du Mannequin Fatou (@perso)</strong> se téléchargent automatiquement dans votre navigateur.
             </p>
           </div>
 
-          {/* Liens de secours discrets si le navigateur bloque le téléchargement */}
+          {/* Boutons d'action / Liens de secours */}
           <div className="border-t border-[#DCDCE2] pt-6 space-y-3">
             <p className="font-mono text-[11px] text-[#56565F] uppercase tracking-wider">
               Un fichier ne s’est pas lancé automatiquement ?
@@ -100,23 +100,23 @@ export default function MerciPage() {
               <a
                 href={dlKitUrl}
                 download={`kit-shooting-mode-${platform}-v1.0.md`}
-                className="px-4 py-2 bg-[#0B0B0D] text-white hover:bg-neutral-800 transition-colors uppercase tracking-wider text-[11px]"
+                className="px-5 py-3 bg-[#0B0B0D] text-white hover:bg-neutral-800 transition-colors uppercase tracking-wider text-[11px] font-bold flex items-center gap-2 cursor-pointer"
               >
-                ⬇ Télécharger le Kit (.md)
+                <span>⬇ 1. Télécharger le Kit Prompt (.MD)</span>
               </a>
               <a
                 href={dlModelUrl}
                 download="planche-mannequin-fatou-reference.png"
-                className="px-4 py-2 border border-[#0B0B0D] bg-white text-[#0B0B0D] hover:bg-[#0B0B0D] hover:text-white transition-colors uppercase tracking-wider text-[11px]"
+                className="px-5 py-3 border border-[#0B0B0D] bg-white text-[#0B0B0D] hover:bg-[#0B0B0D] hover:text-white transition-colors uppercase tracking-wider text-[11px] font-bold flex items-center gap-2 cursor-pointer"
               >
-                ⬇ Télécharger la Planche Mannequin (@perso)
+                <span>⬇ 2. Télécharger la Photo HD Mannequin</span>
               </a>
             </div>
           </div>
         </section>
 
         {/* ═════════════════════════════════════════════════════════════════
-            02. SECTION INVITATION À COLLABORER & ÉCHANGES WHATSAPP
+            02. SECTION INVITATION À COLLABORER & ÉCHANGES WHATSAPP (+225 0757512950)
             ═════════════════════════════════════════════════════════════════ */}
         <section className="space-y-6">
           <div className="border-b border-[#DCDCE2] pb-3 text-center md:text-left space-y-1">
@@ -135,10 +135,10 @@ export default function MerciPage() {
             
             {/* INTENTION 1 : SHOOTING SUR-MESURE */}
             <a
-              href={`https://wa.me/22500000000?text=Bonjour,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#0B0B0D] text-white p-6 flex flex-col justify-between space-y-5 border border-[#0B0B0D] hover:bg-neutral-900 transition-colors group shadow-sm"
+              className="bg-[#0B0B0D] text-white p-6 flex flex-col justify-between space-y-5 border border-[#0B0B0D] hover:bg-neutral-900 transition-colors group shadow-sm cursor-pointer"
             >
               <div className="space-y-2.5">
                 <div className="font-mono text-[9px] uppercase tracking-widest text-[#25D366] font-bold bg-white/10 inline-block px-2 py-0.5">
@@ -156,22 +156,22 @@ export default function MerciPage() {
               </div>
             </a>
 
-            {/* INTENTION 2 : SÉANCE DE JEUDI */}
+            {/* INTENTION 2 : FORMATION EN LIGNE DU SAMEDI */}
             <a
-              href={`https://wa.me/22500000000?text=Je%20m'inscris%20%C3%A0%20la%20s%C3%A9ance%20du%20jeudi%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20m'inscris%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm"
+              className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm cursor-pointer"
             >
               <div className="space-y-2.5">
                 <div className="font-mono text-[9px] uppercase tracking-widest text-[#56565F] bg-[#F6F6F8] inline-block px-2 py-0.5 border border-[#DCDCE2]">
-                  Atelier Offert
+                  Masterclass du Samedi
                 </div>
                 <div className="font-mono text-sm font-bold uppercase text-[#0B0B0D]">
-                  Participer à la séance de jeudi
+                  Participer à la formation du samedi
                 </div>
                 <p className="font-sans text-xs text-[#56565F] leading-relaxed">
-                  Session live hebdomadaire pour analyser vos rendus, calibrer vos lumières et débloquer les prompts en direct.
+                  Session live hebdomadaire chaque samedi pour analyser vos rendus, calibrer vos lumières et débloquer les prompts en direct.
                 </p>
               </div>
               <div className="font-mono text-xs text-[#0B0B0D] underline group-hover:no-underline pt-2 font-bold">
@@ -181,10 +181,10 @@ export default function MerciPage() {
 
             {/* INTENTION 3 : DÉBLOCAGE TECHNIQUE & QUESTIONS */}
             <a
-              href={`https://wa.me/22500000000?text=Je%20suis%20bloqu%C3%A9%20sur%20une%20%C3%A9tape%20du%20kit%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20suis%20bloqu%C3%A9%20sur%20une%20%C3%A9tape%20du%20kit%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm"
+              className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm cursor-pointer"
             >
               <div className="space-y-2.5">
                 <div className="font-mono text-[9px] uppercase tracking-widest text-[#56565F] bg-[#F6F6F8] inline-block px-2 py-0.5 border border-[#DCDCE2]">
@@ -207,14 +207,30 @@ export default function MerciPage() {
 
       </main>
 
-      {/* ── FOOTER ────────────────────────────────────────────────────── */}
-      <footer className="w-full bg-white border-t border-[#DCDCE2] py-6 px-6 md:px-12 text-center">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 font-mono text-[11px] text-[#56565F]">
+      {/* ── FOOTER & RÉSEAUX SOCIAUX DE STEPHEN ───────────────────────── */}
+      <footer className="w-full bg-white border-t border-[#DCDCE2] py-8 px-6 md:px-12 mt-16 text-center">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[11px] text-[#56565F]">
           <div>© 2026 FashionAI Agency · Tous droits réservés.</div>
-          <div className="flex gap-4">
-            <a href="https://wa.me/22500000000" className="hover:text-[#0B0B0D] transition-colors">WhatsApp Direct</a>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
+            <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+              WhatsApp (+225 0757512950)
+            </a>
             <span>·</span>
-            <a href="https://instagram.com" className="hover:text-[#0B0B0D] transition-colors">Instagram</a>
+            <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              Instagram
+            </a>
+            <span>·</span>
+            <a href="https://www.facebook.com/Stephenkniaexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              Facebook
+            </a>
+            <span>·</span>
+            <a href="https://www.tiktok.com/@stephenkn_ia_expert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              TikTok
+            </a>
+            <span>·</span>
+            <a href="https://www.youtube.com/@stephenknIAexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              YouTube
+            </a>
           </div>
         </div>
       </footer>

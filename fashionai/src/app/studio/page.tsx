@@ -768,34 +768,64 @@ export default function StudioLandingKitPage() {
 
           <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
-              href="https://wa.me/22500000000?text=Bonjour,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque"
+              href="https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-white text-[#0B0B0D] font-mono text-xs uppercase tracking-widest hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-lg"
+              className="px-8 py-4 bg-white text-[#0B0B0D] font-mono text-xs uppercase tracking-widest hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-lg cursor-pointer"
             >
               <span>Discuter de votre projet sur WhatsApp →</span>
             </a>
             <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-wider">
-              Devis & cadrage sous 24h · Échange direct avec notre DA
+              Devis & cadrage sous 24h · Échange direct avec notre DA (+225 0757512950)
             </span>
           </div>
         </section>
 
         {/* ═════════════════════════════════════════════════════════════════
-            07. CE QUE CE KIT NE FAIT PAS (Honnêteté & Préparation du Studio)
+            06. FORMATION EN LIGNE DU SAMEDI (MASTERCLASS LIVE)
             ═════════════════════════════════════════════════════════════════ */}
-        <section className="bg-white border border-[#DCDCE2] p-6 md:p-8 space-y-4">
-          <div className="font-mono text-xs font-bold uppercase tracking-wider text-[#0B0B0D] border-b border-[#DCDCE2] pb-2">
-            06 · Ce que ce kit ne fait pas (et ce que fera le studio)
+        <section className="bg-white border border-[#DCDCE2] p-6 md:p-10 space-y-6 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DCDCE2] pb-4">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#B7410E] font-bold">
+                FORMATION EN LIGNE HEBDOMADAIRE · CHAQUE SAMEDI
+              </span>
+              <h2 className="font-serif text-2xl md:text-3xl text-[#0B0B0D] font-normal mt-1">
+                Une masterclass en direct chaque samedi pour maîtriser votre workflow
+              </h2>
+            </div>
+            <div className="shrink-0 font-mono text-[11px] bg-[#25D366]/10 text-[#25D366] font-bold px-3 py-1 border border-[#25D366]/20">
+              ● ATELIER OFFERT
+            </div>
           </div>
 
-          <div className="space-y-3 font-sans text-xs md:text-sm text-[#56565F] leading-relaxed">
-            <p className="font-medium text-[#0B0B0D]">
-              Ce kit produit votre plan maître. La série cohérente — trois-quarts et dos, même mannequin, même lumière — c’est ce que fait le studio automatiquement.
-            </p>
-            <p className="italic text-[#56565F]">
-              « Le premier essai rate souvent. C’est normal — écris-moi sur WhatsApp, on le débloque ensemble. »
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans text-xs text-[#56565F] leading-relaxed">
+            <div className="space-y-1.5">
+              <div className="font-mono text-xs font-bold text-[#0B0B0D] uppercase">01 · Débloquez vos prompts</div>
+              <p>Vous venez avec vos visuels bruts ou vos difficultés de génération, nous ajustons la syntaxe et les conditionnements en direct.</p>
+            </div>
+            <div className="space-y-1.5">
+              <div className="font-mono text-xs font-bold text-[#0B0B0D] uppercase">02 · Calibrage de studio</div>
+              <p>Apprenez à verrouiller l’éclairage, les textures textiles et la morphologie de votre mannequin sur toute une collection.</p>
+            </div>
+            <div className="space-y-1.5">
+              <div className="font-mono text-xs font-bold text-[#0B0B0D] uppercase">03 · Q&amp;A en temps réel</div>
+              <p>Posez toutes vos questions techniques et commerciales directement à Stephen pour rentabiliser votre production IA.</p>
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a
+              href="https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20m'inscrire%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20sur%20FashionAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-[#25D366] hover:bg-[#1EBE5D] text-[#0B0B0D] font-mono text-xs uppercase tracking-widest font-bold transition-colors inline-flex items-center gap-2 shadow-md cursor-pointer"
+            >
+              <span>Je m’inscris à la formation du samedi sur WhatsApp →</span>
+            </a>
+            <span className="font-mono text-[10px] text-[#56565F] uppercase tracking-wider">
+              Nombre de places limité chaque samedi · Inscription gratuite
+            </span>
           </div>
         </section>
 
@@ -816,7 +846,7 @@ export default function StudioLandingKitPage() {
             {/* Close Button */}
             <button
               onClick={() => setIsFormModalOpen(false)}
-              className="absolute top-4 right-4 text-[#56565F] hover:text-[#0B0B0D] font-mono text-xs uppercase tracking-widest p-1"
+              className="absolute top-4 right-4 text-[#56565F] hover:text-[#0B0B0D] font-mono text-xs uppercase tracking-widest p-1 cursor-pointer"
             >
               ✕ Fermer
             </button>
@@ -853,7 +883,7 @@ export default function StudioLandingKitPage() {
             />
             <button
               onClick={() => setIsVideoModalOpen(false)}
-              className="absolute -top-9 right-0 text-white font-mono text-xs uppercase tracking-widest hover:underline"
+              className="absolute -top-9 right-0 text-white font-mono text-xs uppercase tracking-widest hover:underline cursor-pointer"
             >
               ✕ Fermer
             </button>
@@ -876,7 +906,7 @@ export default function StudioLandingKitPage() {
             {/* Bouton Fermer */}
             <button
               onClick={() => setActiveLightbox(null)}
-              className="absolute -top-10 right-0 text-white font-mono text-xs uppercase tracking-widest hover:text-neutral-300 flex items-center gap-1.5"
+              className="absolute -top-10 right-0 text-white font-mono text-xs uppercase tracking-widest hover:text-neutral-300 flex items-center gap-1.5 cursor-pointer"
             >
               <span>✕ Fermer (Échap)</span>
             </button>
@@ -917,7 +947,7 @@ export default function StudioLandingKitPage() {
                           : null
                       )
                     }
-                    className="px-3 py-1.5 border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 transition-colors"
+                    className="px-3 py-1.5 border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
                   >
                     ←
                   </button>
@@ -935,7 +965,7 @@ export default function StudioLandingKitPage() {
                           : null
                       )
                     }
-                    className="px-3 py-1.5 border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 transition-colors"
+                    className="px-3 py-1.5 border border-white/30 hover:border-white bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
                   >
                     →
                   </button>
@@ -946,16 +976,32 @@ export default function StudioLandingKitPage() {
         </div>
       )}
 
-      {/* ── FOOTER ────────────────────────────────────────────────────── */}
+      {/* ── FOOTER & RÉSEAUX SOCIAUX DE STEPHEN ───────────────────────── */}
       <footer className="w-full bg-white border-t border-[#DCDCE2] py-8 px-6 md:px-12 mt-16 text-center">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[11px] text-[#56565F]">
           <div>
             © 2026 FashionAI Agency · Tous droits réservés.
           </div>
-          <div className="flex gap-4">
-            <a href="https://wa.me/22500000000" className="hover:text-[#0B0B0D] transition-colors">WhatsApp Direct</a>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
+            <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+              WhatsApp (+225 0757512950)
+            </a>
             <span>·</span>
-            <a href="https://instagram.com" className="hover:text-[#0B0B0D] transition-colors">Instagram</a>
+            <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              Instagram
+            </a>
+            <span>·</span>
+            <a href="https://www.facebook.com/Stephenkniaexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              Facebook
+            </a>
+            <span>·</span>
+            <a href="https://www.tiktok.com/@stephenkn_ia_expert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              TikTok
+            </a>
+            <span>·</span>
+            <a href="https://www.youtube.com/@stephenknIAexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+              YouTube
+            </a>
           </div>
         </div>
       </footer>

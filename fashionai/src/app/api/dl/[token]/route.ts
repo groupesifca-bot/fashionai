@@ -109,7 +109,7 @@ export async function GET(
 
 > **Note d'exploitation :** Ce kit vous permet de générer des séries complètes de shooting mode (7 vues cohérentes) à partir d'une photo de votre vêtement et d'une planche mannequin.
 > 
-> *« Le premier essai rate souvent. C'est normal — rejoignez la session du jeudi ou écrivez-nous sur WhatsApp pour débloquer vos prompts. »*
+> *« Le premier essai rate souvent. C'est normal — rejoignez la session du samedi ou écrivez-nous sur WhatsApp pour débloquer vos prompts. »*
 
 ---
 
@@ -146,8 +146,8 @@ ${systemeContent}
 ---
 
 ## 💬 ASSISTANCE DIRECTE WHATSAPP
-- **M'inscrire à la séance du jeudi :** https://wa.me/22500000000?text=Je%20m'inscris%20%C3%A0%20la%20s%C3%A9ance%20du%20jeudi
-- **Débloquer une étape :** https://wa.me/22500000000?text=Je%20suis%20bloqu%C3%A9%20sur%20le%20kit
+- **M'inscrire à la séance du samedi :** https://wa.me/2250757512950?text=Je%20m'inscris%20%C3%A0%20la%20s%C3%A9ance%20du%20samedi
+- **Débloquer une étape :** https://wa.me/2250757512950?text=Je%20suis%20bloqu%C3%A9%20sur%20le%20kit
 `;
 
   return new NextResponse(kitDocument, {

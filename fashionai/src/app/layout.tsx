@@ -80,15 +80,36 @@ export default function RootLayout({
               <span className="font-utility-label text-[10px] uppercase tracking-widest text-ink-soft opacity-40 cursor-not-allowed select-none">
                 TRAVAILLER ENSEMBLE (BIENTÔT)
               </span>
-              <span className="text-rule hidden md:inline">|</span>
-              <span className="font-utility-label text-[10px] uppercase tracking-widest text-ink-soft opacity-40 cursor-not-allowed select-none">
-                MENTIONS LÉGALES
-              </span>
             </nav>
           </div>
-          <div className="w-full border-t border-rule pt-stack-sm mt-stack-sm">
+
+          {/* RÉSEAUX SOCIAUX DE STEPHEN */}
+          <div className="w-full border-t border-rule pt-stack-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs font-mono text-[#56565F]">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-[#0B0B0D] font-bold">Réseaux Stephen :</span>
+              <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+                WhatsApp (+225 0757512950)
+              </a>
+              <span>·</span>
+              <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+                Instagram
+              </a>
+              <span>·</span>
+              <a href="https://www.facebook.com/Stephenkniaexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+                Facebook
+              </a>
+              <span>·</span>
+              <a href="https://www.tiktok.com/@stephenkn_ia_expert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+                TikTok
+              </a>
+              <span>·</span>
+              <a href="https://www.youtube.com/@stephenknIAexpert" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
+                YouTube
+              </a>
+            </div>
+
             <div className="font-utility-label text-[10px] font-bold text-ink uppercase tracking-widest">
-              © 2026 FASHIONAI.AGENCY · PHASE 1 LAUNCH
+              © 2026 FASHIONAI.AGENCY
             </div>
           </div>
         </footer>
