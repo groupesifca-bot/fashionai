@@ -12,14 +12,14 @@ export class CloudflareWorkersAIImageProvider implements ImageProvider {
     model: string = '@cf/black-forest-labs/flux-1-schnell'
   ) {
     this.accountId = accountId || process.env.CLOUDFLARE_ACCOUNT_ID || '';
-    this.apiToken = apiToken || process.env.CLOUDFLARE_API_TOKEN || '';
+    this.apiToken = apiToken || process.env.CF_WORKERS_AI_TOKEN || process.env.CLOUDFLARE_API_TOKEN || '';
     this.model = process.env.CLOUDFLARE_IMAGE_MODEL || model;
   }
 
   async generate(input: ImageGenerationInput): Promise<ImageGenerationOutput> {
     if (!this.accountId || !this.apiToken) {
       throw new Error(
-        'CLOUDFLARE_ACCOUNT_ID et CLOUDFLARE_API_TOKEN sont requis pour utiliser Cloudflare Workers AI.'
+        'CLOUDFLARE_ACCOUNT_ID et CF_WORKERS_AI_TOKEN sont requis pour utiliser Cloudflare Workers AI.'
       );
     }
 

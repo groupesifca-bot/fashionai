@@ -1,6 +1,16 @@
 import EncartPrerequis from "@/components/EncartPrerequis";
 import KitForm from "@/components/KitForm";
 
+export function generateStaticParams() {
+  return [
+    { slug: "editorial-studio" },
+    { slug: "lookbook-brutaliste" },
+    { slug: "serie-coherente-ecom" },
+    { slug: "campagne-mouvement" },
+    { slug: "studio-shooting-mode" },
+  ];
+}
+
 export default async function KitLandingPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   
