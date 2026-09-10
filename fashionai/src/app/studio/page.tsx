@@ -219,11 +219,11 @@ export default function StudioLandingKitPage() {
       description: "Prompts conversationnels et descriptifs avec balises @source, @tenue et @perso prêtes à l'emploi.",
     },
     autres: {
-      name: "Autres Modèles",
-      models: "Midjourney v6, Fal.ai, Flux.1, Fooocus / ComfyUI",
-      cost: "Gratuit en local ou ~10-30$/mois",
-      badge: "Édition Universelle & Tags",
-      description: "Directives universelles adaptées aux paramètres --cref / --sref (Midjourney) et Seedream Edit (Fal.ai).",
+      name: "Claude et autres",
+      models: "Claude 3.7 / 3.5 Sonnet, Midjourney, Flux.1, Seedream",
+      cost: "Inclus Claude Pro / API ou local",
+      badge: "Édition Claude & Autres",
+      description: "Directives adaptées aux modèles multimodaux Claude (Anthropic), Midjourney v6 (--cref/--sref), et générateurs Flux/Seedream.",
     },
   };
 

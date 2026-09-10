@@ -93,9 +93,9 @@ export async function GET(
 - Téléversez la Pièce 2 (Système) dans la section **Connaissances**.
 - Désactivez "Génération d'images" sur GPT si vous voulez que l'agent livre exclusivement les prompts optimisés sans gaspiller vos messages.`,
 
-    autres: `### 🎯 CONSEILS D'EXÉCUTION SPÉCIFIQUES POUR SEEDREAM 5.0 PRO / FLUX / MIDJOURNEY
-- Le système V-USER génère par défaut la syntaxe native 14 blocs avec **negative prompt séparé à 4 couches** calibrée pour Seedream 5.0 PRO et Flux.1.
-- Pour Midjourney v6 : utilisez l'image triptyque avec \`--sref\` et la planche mannequin Fatou avec \`--cref [URL_FATOU] --cw 80\`.
+    autres: `### 🎯 CONSEILS D'EXÉCUTION SPÉCIFIQUES POUR CLAUDE (ANTHROPIC), SEEDREAM, FLUX & MIDJOURNEY
+- **Pour Claude (3.7 Sonnet / 3.5 Sonnet) :** Téléversez la Pièce 2 (Système) dans un Projet Claude ou joignez-le en contexte avec votre image vêtement (@tenue) et votre mannequin (@perso).
+- Le système V-USER génère la syntaxe native 14 blocs calibrée pour **Seedream 5.0 PRO**, **Flux.1** et **Midjourney v6** (\`--cref\` / \`--sref\`).
 - Pour ComfyUI / Fooocus : IP-Adapter Style Fidelity 0.7, Composition 0.8.`,
   };
 

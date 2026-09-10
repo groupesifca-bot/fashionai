@@ -160,7 +160,7 @@ export default function KitForm({
           {[
             { id: "google", label: "Google", desc: "Imagen 3 / Gemini" },
             { id: "chatgpt", label: "ChatGPT", desc: "GPT-4o Vision" },
-            { id: "autres", label: "Autres", desc: "Midjourney / Flux" },
+            { id: "autres", label: "Claude & Autres", desc: "Claude / Midjourney / Flux" },
           ].map((item) => (
             <button
               type="button"
