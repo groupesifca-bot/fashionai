@@ -768,7 +768,7 @@ export default function StudioLandingKitPage() {
 
           <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
-              href="https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque"
+              href="https://wa.me/2250757512959?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-white text-[#0B0B0D] font-mono text-xs uppercase tracking-widest hover:bg-neutral-200 transition-colors inline-flex items-center gap-2 shadow-lg cursor-pointer"
@@ -776,7 +776,7 @@ export default function StudioLandingKitPage() {
               <span>Discuter de votre projet sur WhatsApp →</span>
             </a>
             <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-wider">
-              Devis & cadrage sous 24h · Échange direct avec notre DA (+225 0757512950)
+              Devis & cadrage sous 24h · Échange direct avec notre DA (+225 0757512959)
             </span>
           </div>
         </section>
@@ -816,7 +816,7 @@ export default function StudioLandingKitPage() {
 
           <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
-              href="https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20m'inscrire%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20sur%20FashionAI"
+              href="https://wa.me/2250757512959?text=Bonjour%20Stephen,%20je%20souhaite%20m'inscrire%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20sur%20FashionAI"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#25D366] hover:bg-[#1EBE5D] text-[#0B0B0D] font-mono text-xs uppercase tracking-widest font-bold transition-colors inline-flex items-center gap-2 shadow-md cursor-pointer"
@@ -983,8 +983,8 @@ export default function StudioLandingKitPage() {
             © 2026 FashionAI Agency · Tous droits réservés.
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
-            <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
-              WhatsApp (+225 0757512950)
+            <a href="https://wa.me/2250757512959" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+              WhatsApp (+225 0757512959)
             </a>
             <span>·</span>
             <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">

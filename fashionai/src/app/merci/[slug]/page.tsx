@@ -116,7 +116,7 @@ export default function MerciPage() {
         </section>
 
         {/* ═════════════════════════════════════════════════════════════════
-            02. SECTION INVITATION À COLLABORER & ÉCHANGES WHATSAPP (+225 0757512950)
+            02. SECTION INVITATION À COLLABORER & ÉCHANGES WHATSAPP (+225 0757512959)
             ═════════════════════════════════════════════════════════════════ */}
         <section className="space-y-6">
           <div className="border-b border-[#DCDCE2] pb-3 text-center md:text-left space-y-1">
@@ -135,7 +135,7 @@ export default function MerciPage() {
             
             {/* INTENTION 1 : SHOOTING SUR-MESURE */}
             <a
-              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512959?text=Bonjour%20Stephen,%20je%20souhaite%20un%20shooting%20personnalis%C3%A9%20pour%20ma%20marque%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0B0B0D] text-white p-6 flex flex-col justify-between space-y-5 border border-[#0B0B0D] hover:bg-neutral-900 transition-colors group shadow-sm cursor-pointer"
@@ -158,7 +158,7 @@ export default function MerciPage() {
 
             {/* INTENTION 2 : FORMATION EN LIGNE DU SAMEDI */}
             <a
-              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20m'inscris%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512959?text=Bonjour%20Stephen,%20je%20m'inscris%20%C3%A0%20la%20formation%20en%20ligne%20du%20samedi%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm cursor-pointer"
@@ -181,7 +181,7 @@ export default function MerciPage() {
 
             {/* INTENTION 3 : DÉBLOCAGE TECHNIQUE & QUESTIONS */}
             <a
-              href={`https://wa.me/2250757512950?text=Bonjour%20Stephen,%20je%20suis%20bloqu%C3%A9%20sur%20une%20%C3%A9tape%20du%20kit%20%E2%80%94%20code%20${waCode}`}
+              href={`https://wa.me/2250757512959?text=Bonjour%20Stephen,%20je%20suis%20bloqu%C3%A9%20sur%20une%20%C3%A9tape%20du%20kit%20%E2%80%94%20code%20${waCode}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-[#0B0B0D] p-6 flex flex-col justify-between space-y-5 border border-[#DCDCE2] hover:border-[#0B0B0D] transition-colors group shadow-sm cursor-pointer"
@@ -212,8 +212,8 @@ export default function MerciPage() {
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[11px] text-[#56565F]">
           <div>© 2026 FashionAI Agency · Tous droits réservés.</div>
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
-            <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
-              WhatsApp (+225 0757512950)
+            <a href="https://wa.me/2250757512959" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+              WhatsApp (+225 0757512959)
             </a>
             <span>·</span>
             <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">

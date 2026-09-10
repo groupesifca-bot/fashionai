@@ -13,7 +13,7 @@ interface CountryOption {
 }
 
 const COUNTRIES: CountryOption[] = [
-  { code: "CI", name: "Côte d’Ivoire", dial: "+225", flag: "🇨🇮", placeholder: "07 57 51 29 50" },
+  { code: "CI", name: "Côte d’Ivoire", dial: "+225", flag: "🇨🇮", placeholder: "07 57 51 29 59" },
   { code: "SN", name: "Sénégal", dial: "+221", flag: "🇸🇳", placeholder: "77 000 00 00" },
   { code: "CM", name: "Cameroun", dial: "+237", flag: "🇨🇲", placeholder: "6 00 00 00 00" },
   { code: "FR", name: "France", dial: "+33", flag: "🇫🇷", placeholder: "06 00 00 00 00" },

@@ -146,8 +146,8 @@ ${systemeContent}
 ---
 
 ## 💬 ASSISTANCE DIRECTE WHATSAPP
-- **M'inscrire à la séance du samedi :** https://wa.me/2250757512950?text=Je%20m'inscris%20%C3%A0%20la%20s%C3%A9ance%20du%20samedi
-- **Débloquer une étape :** https://wa.me/2250757512950?text=Je%20suis%20bloqu%C3%A9%20sur%20le%20kit
+- **M'inscrire à la séance du samedi :** https://wa.me/2250757512959?text=Je%20m'inscris%20%C3%A0%20la%20s%C3%A9ance%20du%20samedi
+- **Débloquer une étape :** https://wa.me/2250757512959?text=Je%20suis%20bloqu%C3%A9%20sur%20le%20kit
 `;
 
   return new NextResponse(kitDocument, {

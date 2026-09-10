@@ -87,8 +87,8 @@ export default function RootLayout({
           <div className="w-full border-t border-rule pt-stack-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs font-mono text-[#56565F]">
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-[#0B0B0D] font-bold">Réseaux Stephen :</span>
-              <a href="https://wa.me/2250757512950" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
-                WhatsApp (+225 0757512950)
+              <a href="https://wa.me/2250757512959" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold hover:underline">
+                WhatsApp (+225 0757512959)
               </a>
               <span>·</span>
               <a href="https://www.instagram.com/stephenkniaexpert/" target="_blank" rel="noopener noreferrer" className="hover:text-[#0B0B0D] transition-colors">
